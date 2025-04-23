@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tamil Nadu Elections Platform - Comprehensive Demo</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">TN Elections</div>
+                <button class="new-chat-btn" id="new-chat-btn">New Chat</button>
+            </div>
+            <div class="conversation-history" id="conversation-history">
+                <!-- Conversation history will be added here -->
+            </div>
+            <div class="sidebar-footer">
+                Tamil Nadu Elections Platform 2026
+            </div>
+        </aside>
+
+        <div class="main-content">
+            <header>
+                <button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
+                <nav class="nav-links">
+                    <a href="#" class="nav-link" data-page="home">Home</a>
+                    <a href="#" class="nav-link" data-page="candidates">Candidates</a>
+                    <a href="#" class="nav-link" data-page="issues">Issues</a>
+                    <a href="#" class="nav-link" data-page="about">About</a>
+                </nav>
+            </header>
+
+            <main id="main-content">
+                <!-- Home Page View -->
+                <div id="home-view" class="page-view">
+                    <section class="hero-section">
+                        <h1 class="hero-title">Ask about Tamil Nadu Elections</h1>
+                        <p class="hero-subtitle">
+                            Discover what candidates think about important issues in the upcoming 2026 Tamil Nadu elections. 
+                            Ask any question about candidates' positions on policies, or try one of the examples below.
+                        </p>
+                        
+                        <div class="search-container">
+                            <form class="search-form" id="search-form">
+                                <input
+                                    type="text"
+                                    class="search-input"
+                                    id="search-input"
+                                    placeholder="Ask about Tamil Nadu elections..."
+                                    aria-label="Search query"
+                                />
+                                <button type="submit" class="search-button" aria-label="Search">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <polyline points="9 18 15 12 9 6"></polyline>
+                                    </svg>
+                                </button>
+                            </form>
+                        </div>
+                        
+                        <div class="example-queries">
+                            <button class="example-query" data-query="What does MK Stalin think about the 3 language policy?">
+                                <span class="example-query-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <line x1="12" y1="8" x2="12" y2="12"></line>
+                                        <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                                    </svg>
+                                </span>
+                                What does MK Stalin think about the 3 language policy?
+                            </button>
+                            <button class="example-query" data-query="What is Edappadi K. Palaniswami's position on AI policies?">
+                                <span class="example-query-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <line x1="12" y1="8" x2="12" y2="12"></line>
+                                        <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                                    </svg>
+                                </span>
+                                What is Edappadi K. Palaniswami's position on AI policies?
+                            </button>
+                            <button class="example-query" data-query="How does O. Panneerselvam plan to address unemployment?">
+                                <span class="example-query-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <line x1="12" y1="8" x2="12" y2="12"></line>
+                                        <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                                    </svg>
+                                </span>
+                                How does O. Panneerselvam plan to address unemployment?
+                            </button>
+                        </div>
+                    </section>
+                    
+                    <div class="empty-state" id="empty-state">
+                        <div class="empty-state-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <line x1="12" y1="16" x2="12" y2="12"></line>
+                                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                            </svg>
+                        </div>
+                        <h2 class="empty-state-title">Start a new conversation</h2>
+                        <p class="empty-state-description">
+                            Ask a question about Tamil Nadu elections or try one of the example queries above.
+                            Your conversation history will appear in the sidebar.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Conversation View -->
+                <section class="conversation-container" id="conversation-container">
+                    <!-- Messages will be added here dynamically -->
+                </section>
+
+                <!-- Candidate Profile View -->
+                <div id="candidate-profile-view" class="page-view">
+                    <div class="candidate-profile">
+                        <div class="candidate-header">
+                            <div class="candidate-photo">
+                                <img src="images/mk_stalin.jpg" alt="MK Stalin" id="candidate-image">
+                            </div>
+                            <div class="candidate-info">
+                                <h1 id="candidate-name">MK Stalin</h1>
+                                <p id="candidate-party">DMK | Kolathur</p>
+                                <p id="candidate-position">Chief Minister of Tamil Nadu (2021-Present)</p>
+                            </div>
+                        </div>
+                        
+                        <div class="policy-tabs">
+                            <button class="policy-tab active" data-policy="language">Language</button>
+                            <button class="policy-tab" data-policy="education">Education</button>
+                            <button class="policy-tab" data-policy="economy">Economy</button>
+                            <button class="policy-tab" data-policy="infrastructure">Infrastructure</button>
+                            <button class="policy-tab" data-policy="water">Water</button>
+                        </div>
+                        
+                        <div class="policy-content" id="policy-content">
+                            <h2>Language Policy</h2>
+                            <p>MK Stalin has consistently opposed the three-language policy, viewing it as an imposition of Hindi on Tamil Nadu. In a statement made during the DMK general council meeting in Chennai on March 15, 2025, Stalin said: "The three-language formula is nothing but a disguised attempt to impose Hindi on Tamil Nadu. We will continue to resist any move that undermines Tamil language and identity."</p>
+                            <p>He has advocated for a two-language policy (Tamil and English) and has criticized the central government's attempts to make Hindi mandatory in the state's education system.</p>
+                            <p>The DMK's 2026 election manifesto explicitly mentions opposition to the three-language policy as a key agenda item.</p>
+                            
+                            <h3>Key Statements</h3>
+                            <ul class="key-statements">
+                                <li>"The three-language formula is nothing but a disguised attempt to impose Hindi on Tamil Nadu."</li>
+                                <li>"We will continue to resist any move that undermines Tamil language and identity."</li>
+                                <li>"Tamil and English are sufficient for the educational and employment needs of our people."</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="candidate-search">
+                            <form class="search-form" id="candidate-search-form">
+                                <input
+                                    type="text"
+                                    class="search-input"
+                                    id="candidate-search-input"
+                                    placeholder="Ask about MK Stalin..."
+                                    aria-label="Search query about candidate"
+                                />
+                                <button type="submit" class="search-button" aria-label="Search">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <polyline points="9 18 15 12 9 6"></polyline>
+                                    </svg>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Comparison View -->
+                <div id="comparison-view" class="page-view">
+                    <div class="comparison-container">
+                        <h1 class="comparison-title">Compare Candidates on Education Policy</h1>
+                        
+                        <div class="candidates-comparison">
+                            <div class="candidate-column">
+                                <h2>MK Stalin (DMK)</h2>
+                                <ul class="policy-points">
+                                    <li>Allocation of 6% of state GDP to education</li>
+                                    <li>Free higher education for first-generation learners</li>
+                                    <li>Modernizing curriculum with digital skills training</li>
+                                    <li>Expanding Tamil medium instruction while strengthening English language education</li>
+                                    <li>Opposing NEET and advocating for state control of education</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="candidate-column">
+                                <h2>Edappadi K. Palaniswami (AIADMK)</h2>
+                                <ul class="policy-points">
+                                    <li>Mandatory skill development courses in all higher education institutions</li>
+                                    <li>Public-private partnerships to improve educational infrastructure</li>
+                                    <li>Enhanced English language proficiency programs</li>
+                                    <li>Vocational training integrated with academic education</li>
+                                    <li>Merit-based teacher recruitment and performance evaluation</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="key-differences">
+                            <h2>Key Differences</h2>
+                            <ul>
+                                <li>DMK opposes NEET, AIADMK supports it with certain modifications</li>
+                                <li>DMK emphasizes free education, AIADMK focuses on skill development</li>
+                                <li>DMK supports Tamil medium instruction, AIADMK emphasizes English proficiency</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="comparison-topics">
+                            <h3>Compare on Another Topic</h3>
+                            <div class="topic-buttons">
+                                <button class="topic-button" data-topic="language">Language</button>
+                                <button class="topic-button active" data-topic="education">Education</button>
+                                <button class="topic-button" data-topic="economy">Economy</button>
+                                <button class="topic-button" data-topic="infrastructure">Infrastructure</button>
+                                <button class="topic-button" data-topic="water">Water</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Issues View -->
+                <div id="issues-view" class="page-view">
+                    <div class="issues-container">
+                        <h1 class="issues-title">Key Issues in Tamil Nadu Elections 2026</h1>
+                        
+                        <div class="issues-grid">
+                            <div class="issue-card" data-issue="language">
+                                <div class="issue-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                                    </svg>
+                                </div>
+                                <h2>Language Policy</h2>
+                                <p>The debate over the three-language formula and protection of Tamil language</p>
+                            </div>
+                            
+                            <div class="issue-card active" data-issue="education">
+                                <div class="issue-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                                        <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                                    </svg>
+                                </div>
+                                <h2>Education</h2>
+                                <p>Access to quality education, NEET exam controversy, and educational reforms</p>
+                            </div>
+                            
+                            <div class="issue-card" data-issue="economy">
+                                <div class="issue-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <line x1="12" y1="1" x2="12" y2="23"></line>
+                                        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                                    </svg>
+                                </div>
+                                <h2>Economy</h2>
+                                <p>Job creation, industrial development, and economic recovery post-pandemic</p>
+                            </div>
+                            
+                            <div class="issue-card" data-issue="infrastructure">
+                                <div class="issue-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <rect x="2" y="12" width="4" height="10"></rect>
+                                        <rect x="10" y="8" width="4" height="14"></rect>
+                                        <rect x="18" y="4" width="4" height="18"></rect>
+                                    </svg>
+                                </div>
+                                <h2>Infrastructure</h2>
+                                <p>Urban development, transportation, and public facilities improvement</p>
+                            </div>
+                            
+                            <div class="issue-card" data-issue="water">
+                                <div class="issue-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path>
+                                    </svg>
+                                </div>
+                                <h2>Water Management</h2>
+                                <p>Cauvery water dispute, drought mitigation, and water conservation</p>
+                            </div>
+                            
+                            <div class="issue-card" data-issue="agriculture">
+                                <div class="issue-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                                    </svg>
+                                </div>
+                                <h2>Agriculture</h2>
+                                <p>Farmer welfare, agricultural subsidies, and sustainable farming practices</p>
+                            </div>
+                        </div>
+                        
+                        <div class="issue-detail" id="issue-detail">
+                            <h2>Education in Tamil Nadu</h2>
+                            
+                            <div class="issue-description">
+                                <p>Education has emerged as a critical issue in Tamil Nadu politics, with parties presenting contrasting visions for the state's educational future. The debate encompasses several key aspects:</p>
+                                
+                                <h3>NEET Examination Controversy</h3>
+                                <p>The National Eligibility cum Entrance Test (NEET) for medical admissions has been a contentious issue in Tamil Nadu. The DMK strongly opposes NEET, arguing it disadvantages rural students and those from state board backgrounds. The party has advocated for state-based admissions. In contrast, the AIADMK has taken a more moderate stance, supporting NEET with certain modifications to make it more accessible to Tamil Nadu students.</p>
+                                
+                                <h3>Language of Instruction</h3>
+                                <p>The medium of instruction in educational institutions is another point of contention. The DMK emphasizes the importance of Tamil medium instruction while also strengthening English language education. The AIADMK, on the other hand, places greater emphasis on English proficiency programs, viewing English language skills as essential for global competitiveness.</p>
+                                
+                                <h3>Funding and Access</h3>
+                                <p>The DMK has promised to allocate 6% of the state GDP to education and provide free higher education for first-generation learners. The AIADMK focuses more on public-private partnerships to improve educational infrastructure and mandatory skill development courses in higher education institutions.</p>
+                                
+                                <h3>Educational Quality</h3>
+                                <p>Both parties acknowledge the need to improve educational quality, but with different approaches. The DMK emphasizes modernizing curriculum with digital skills training, while the AIADMK focuses on merit-based teacher recruitment and performance evaluation.</p>
+                            </div>
+                            
+                            <div class="candidate-positions">
+                                <h3>Candidate Positions</h3>
+                                
+                                <div class="position-card">
+                                    <h4>MK Stalin (DMK)</h4>
+                                    <p>"We will allocate 6% of state GDP to education and ensure that every child in Tamil Nadu receives quality education regardless of their economic background."</p>
+                                    <p>"NEET must be abolished as it undermines the state's rights in education and disadvantages our students."</p>
+                                </div>
+                                
+                                <div class="position-card">
+                                    <h4>Edappadi K. Palaniswami (AIADMK)</h4>
+                                    <p>"Our focus will be on skill development and ensuring that Tamil Nadu students are prepared for the jobs of tomorrow."</p>
+                                    <p>"We will work with the central government to make NEET more accessible to Tamil Nadu students while maintaining quality standards."</p>
+                                </div>
+                            </div>
+                            
+                            <div class="issue-search">
+                                <form class="search-form" id="issue-search-form">
+                                    <input
+                                        type="text"
+                                        class="search-input"
+                                        id="issue-search-input"
+                                        placeholder="Ask about education policies..."
+                                        aria-label="Search query about issue"
+                                    />
+                                    <button type="submit" class="search-button" aria-label="Search">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <polyline points="9 18 15 12 9 6"></polyline>
+                                        </svg>
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- About View -->
+                <div id="about-view" class="page-view">
+                    <div class="about-container">
+                        <h1 class="about-title">About Tamil Nadu Elections Platform</h1>
+                        
+                        <div class="about-content">
+                            <p>The Tamil Nadu Elections Platform is a non-partisan initiative designed to help voters make informed decisions in the upcoming 2026 Tamil Nadu Legislative Assembly elections. Our mission is to provide accurate, comprehensive information about candidates' positions on key issues affecting the state.</p>
+                            
+                            <h2>Our Approach</h2>
+                            <p>We collect information from multiple sources, including:</p>
+                            <ul>
+                                <li>Official party websites and manifestos</li>
+                                <li>Public statements and speeches by candidates</li>
+                                <li>Press conferences and media interviews</li>
+                                <li>Legislative records and voting history</li>
+                                <li>Verified social media accounts</li>
+                            </ul>
+                            
+                            <p>All information is verified by our team of researchers and fact-checkers to ensure accuracy. We strive to present candidates' positions in their own words whenever possible, with proper context and citation of sources.</p>
+                            
+                            <h2>Our Technology</h2>
+                            <p>The platform uses advanced natural language processing and retrieval-augmented generation to provide accurate responses to your questions about candidates and issues. Our system is designed to:</p>
+                            <ul>
+                                <li>Understand the intent behind your questions</li>
+                                <li>Retrieve relevant information from our verified database</li>
+                                <li>Present information in a clear, conversational format</li>
+                                <li>Provide sources for all information so you can verify it yourself</li>
+                            </ul>
+                            
+                            <h2>Contact Us</h2>
+                            <p>If you have questions, feedback, or would like to report an inaccuracy, please contact us at:</p>
+                            <p>Email: info@tnelections2026.org</p>
+                            <p>Phone: +91 44 2345 6789</p>
+                        </div>
+                    </div>
+                </div>
+            </main>
+            
+            <footer>
+                <div>
+                    Tamil Nadu Elections Platform 2026 | Proof of Concept
+                </div>
+                <div class="footer-links">
+                    <a href="#" class="nav-link" data-page="about">About</a>
+                    <a href="#">Methodology</a>
+                    <a href="#">Feedback</a>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
